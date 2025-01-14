@@ -9,10 +9,12 @@ import Foundation
 
 class PersistenceHelper {
     static func saveVolume(for app: RunningApp) {
-        UserDefaults.standard.set(app.volume, forKey: app.appName)
+        let key = "volume_\(app.appName)"
+        UserDefaults.standard.set(app.volume, forKey: key)
     }
 
     static func loadVolume(for app: RunningApp) -> Float {
-        return UserDefaults.standard.float(forKey: app.appName)
+        let key = "volume_\(app.appName)"
+        return UserDefaults.standard.float(forKey: key)
     }
 }
